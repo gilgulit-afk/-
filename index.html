@@ -70,15 +70,14 @@ p+p{margin-top:1.15em}
 .side .brand{display:flex;align-items:center;gap:14px;margin-bottom:38px}
 .side .brand img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:center 20%;filter:saturate(.9)}
 .side .brand span{font-family:var(--serif);font-size:26px;color:var(--brown);line-height:1.15}
-.side nav{display:flex;flex-direction:column;counter-reset:n}
+.side nav{display:flex;flex-direction:column}
 .side nav a{
-  counter-increment:n;position:relative;display:flex;gap:14px;align-items:baseline;
+  position:relative;display:flex;gap:14px;align-items:baseline;
   padding:11px 0;font-size:17px;line-height:1.45;color:var(--ink-soft);
   border-bottom:1px solid var(--line);transition:color .3s;
 }
-.side nav a::before{content:counter(n,decimal-leading-zero);font-family:var(--serif);font-size:13px;color:var(--stone);transition:color .3s;min-width:20px}
+.side nav a::before{content:none}
 .side nav a:hover,.side nav a.on{color:var(--bordeaux)}
-.side nav a.on::before{color:var(--clay)}
 .side nav a::after{content:"";position:absolute;right:-30px;top:50%;width:3px;height:0;background:var(--bordeaux);transform:translateY(-50%);transition:height .3s}
 .side nav a.on::after{height:60%}
 .side .side-cta{margin-top:auto;padding-top:28px}
@@ -149,9 +148,9 @@ main{margin-right:var(--side-w)}
 .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,25,22,.05),rgba(30,25,22,.22))}
 
 /* lists */
-.soft-list{list-style:none;margin-top:8px;counter-reset:li}
-.soft-list li{counter-increment:li;display:grid;grid-template-columns:54px 1fr;gap:6px;padding:26px 0;border-top:1px solid var(--line)}
-.soft-list li::before{content:counter(li,decimal-leading-zero);font-family:var(--serif);font-size:20px;color:var(--clay);line-height:2}
+.soft-list{list-style:none;margin-top:8px}
+.soft-list li{display:grid;grid-template-columns:34px 1fr;gap:6px;padding:26px 0;border-top:1px solid var(--line)}
+.soft-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--clay);margin-top:.85em}
 
 .cta-row{margin-top:54px}
 
@@ -234,7 +233,7 @@ main{margin-right:var(--side-w)}
   .side nav{flex-direction:row;overflow-x:auto;scrollbar-width:none}
   .side nav::-webkit-scrollbar{display:none}
   .side nav a{white-space:nowrap;font-size:15px;padding:8px 12px;border:0}
-  .side nav a::before,.side nav a::after{display:none}
+  .side nav a::after{display:none}
   .side nav a.on{background:var(--cream);border-radius:999px}
   .side .side-cta{display:none}
   main{margin-right:0;padding-top:58px}
@@ -250,7 +249,7 @@ main{margin-right:var(--side-w)}
   .ws-img{height:240px}
   .tst{grid-template-columns:1fr;padding:42px 0}
   .tst .q{font-size:70px;height:40px}
-  .soft-list li{grid-template-columns:42px 1fr}
+  .soft-list li{grid-template-columns:28px 1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -372,6 +371,7 @@ main{margin-right:var(--side-w)}
       <p>נלמד לזהות את הדפוסים שמופיעים בינינו, לתקשר רצונות וגבולות באופן בהיר ופתוח, ולהעמיק את היכולת להיות קרובים מבלי לאבד את עצמנו. ניצור מרחב שמאפשר להאט, להשתחרר מהצורך לבצע או להרשים, ולהקשיב למה שבאמת מתרחש בגוף ובלב.</p>
       <p>התרגילים מותאמים אליכם, לקצב שלכם ולמידת הפתיחות שנוחה לכם. אין צורך בניסיון קודם בטנטרה, ואין צורך להגיע עם מטרה מסוימת או עם קושי בזוגיות. נדרשים רק סקרנות ונכונות לחקור יחד. כל התנסות נעשית בהסכמה מלאה, תוך כיבוד הגבולות והרצונות של שניכם.</p>
     </div>
+    <div class="cta-row reveal"><a class="btn" href="https://wa.me/972544799145?text=%D7%94%D7%99%20%D7%92%D7%99%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%94%20%D7%95%D7%A0%D7%91%D7%93%D7%95%D7%A7%20%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%9C%D7%9E%D7%A4%D7%92%D7%A9%D7%99%D7%9D%20%D7%AA%D7%94%D7%9C%D7%99%D7%9B%D7%99%D7%99%D7%9D%20%D7%91%D7%A7%D7%9C%D7%99%D7%A0%D7%99%D7%A7%D7%94%20%D7%90%D7%95%20%D7%9C%D7%94%D7%A8%D7%A9%D7%9E%D7%94%20%D7%9C%D7%90%D7%97%D7%AA%20%D7%9E%D7%94%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg><span>לתיאום סדנא פרטית</span></a></div>
   </div>
 </section>
 
