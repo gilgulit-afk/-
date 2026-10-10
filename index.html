@@ -166,6 +166,12 @@ main{margin-right:var(--side-w)}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--cream)}
 .duo img{width:100%;height:clamp(300px,42vw,620px);object-fit:cover}
 
+/* sparkle list */
+.spark-list{list-style:none;margin-top:34px;display:grid;grid-template-columns:1fr}
+.spark-list li{display:grid;grid-template-columns:30px 1fr;gap:6px;padding:20px 0;border-top:1px solid var(--line)}
+.spark-list li::before{content:"✨";font-size:18px;line-height:1.9}
+#couples h3{margin-top:0}
+
 /* lists */
 .soft-list{list-style:none;margin-top:8px}
 .soft-list li{display:grid;grid-template-columns:34px 1fr;gap:6px;padding:26px 0;border-top:1px solid var(--line)}
@@ -288,6 +294,7 @@ main{margin-right:var(--side-w)}
   .tst{grid-template-columns:1fr;padding:42px 0}
   .tst .q{font-size:70px;height:40px}
   .soft-list li{grid-template-columns:28px 1fr}
+  .spark-list{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -307,6 +314,7 @@ main{margin-right:var(--side-w)}
     <a href="#sexuality">המיניות כמרחב של חקירה והתעוררות</a>
     <a href="#life">מהחקירה אל החיים עצמם</a>
     <a href="#private">סדנאות פרטיות</a>
+    <a href="#couples">למי מתאימות הסדנאות הזוגיות?</a>
     <a href="#clinic">מפגשים אישיים בקליניקה</a>
     <a href="#forwhom">למי המפגשים האישיים מתאימים?</a>
     <a href="#workshops">סדנאות</a>
@@ -396,7 +404,6 @@ main{margin-right:var(--side-w)}
   <div class="inner">
     <h2 class="reveal">סדנאות פרטיות</h2>
     <p class="lead reveal">נבנות בהתאמה אישית לזוג, בהתאם לצרכים, לכוונות ולמרחב החקירה המבוקש.</p>
-    <figure class="inset reveal"><img src="images/embrace.jpg" alt="" loading="lazy" style="object-position:center 35%"></figure>
     <div class="reveal">
       <p>זהו מפגש זוגי אינטימי בן שלוש שעות, המוקדש לכם על מנת שתיפגשו מחדש, מתוך סקרנות, נוכחות ולב פתוח.</p>
       <p>הסדנה היא הזמנה לגלות אפשרויות חדשות של קרבה, תקשורת, מגע ואינטימיות. דרך עקרונות הטנטרה, נחקור יחד איך אפשר ליצור מרחב זוגי ממקום של חיבור פנימי והדדי, תקשורת, נוכחות ולב פתוח ולהעצים את החופש והתשוקה בקשר שלכם.</p>
@@ -405,6 +412,27 @@ main{margin-right:var(--side-w)}
       <p>התרגילים מותאמים אליכם, לקצב שלכם ולמידת הפתיחות שנוחה לכם. אין צורך בניסיון קודם בטנטרה, ואין צורך להגיע עם מטרה מסוימת או עם קושי בזוגיות. נדרשים רק סקרנות ונכונות לחקור יחד. כל התנסות נעשית בהסכמה מלאה, תוך כיבוד הגבולות והרצונות של שניכם.</p>
     </div>
     <div class="cta-row reveal"><a class="btn" href="https://wa.me/972544799145?text=%D7%94%D7%99%20%D7%92%D7%99%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%94%20%D7%95%D7%A0%D7%91%D7%93%D7%95%D7%A7%20%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%9C%D7%9E%D7%A4%D7%92%D7%A9%D7%99%D7%9D%20%D7%AA%D7%94%D7%9C%D7%99%D7%9B%D7%99%D7%99%D7%9D%20%D7%91%D7%A7%D7%9C%D7%99%D7%A0%D7%99%D7%A7%D7%94%20%D7%90%D7%95%20%D7%9C%D7%94%D7%A8%D7%A9%D7%9E%D7%94%20%D7%9C%D7%90%D7%97%D7%AA%20%D7%9E%D7%94%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg><span>לתיאום סדנא פרטית</span></a></div>
+  </div>
+</section>
+
+<section class="sec dark rose" id="couples">
+  <div class="inner">
+    <h2 class="reveal">למי מתאימות הסדנאות הזוגיות?</h2>
+    <figure class="inset reveal"><img src="images/embrace.jpg" alt="" loading="lazy" style="object-position:center 35%"></figure>
+    <h3 class="reveal">למי הסדנא מתאימה?</h3>
+    <p class="lead reveal">הסדנא מתאימה לזוגות בכל שלבי הקשר הזוגי.</p>
+    <p class="reveal">בסדנא תוכלו ללמוד לבנות יחד קשר המתבסס על שפה משותפת ומיניות בריאה ומודעת.</p>
+    <ul class="spark-list reveal">
+      <li>לזוגות שמתנסים בטנטרה בפעם הראשונה ורוצים להכיר את העולם הזה יחד, בסקרנות ובפתיחות.</li>
+      <li>לזוגות שכבר התנסו בטנטרה והשתתפו בסדנאות, ומרגישים רצון להעמיק ולגלות עוד.</li>
+      <li>לזוגות שרוצים להעמיק את האינטימיות ולגלות דרכים חדשות להרגיש קרובים, מחוברים ונוכחים יחד.</li>
+      <li>לזוגות שמבקשים להחזיר תשוקה ומשחקיות לקשר, ולצאת מהשגרה אל מרחב של סקרנות והנאה.</li>
+      <li>למי שרוצה להכיר את הגוף ואת העונג בצורה חופשית ומודעת.</li>
+      <li>לזוגות שרוצים לשפר את התקשורת סביב רצונות, גבולות, מגע וצרכים אישיים.</li>
+      <li>לזוגות שרוצים להעניק לעצמם זמן איכות ולצאת מהאוטומט – ליצור מפגש של חיבור, הקשבה, צחוק וגילוי הדדי.</li>
+      <li>למי שסקרנים להכניס רוח חדשה לזוגיות ולחקור יחד אפשרויות חדשות של אינטימיות ותשוקה.</li>
+      <li>למי שרוצים ללמוד כלים מעשיים שיכולים להמשיך איתם גם אל חיי היומיום, מעבר לסדנא.</li>
+    </ul>
   </div>
 </section>
 
