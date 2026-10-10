@@ -198,6 +198,9 @@ main{margin-right:var(--side-w)}
 .couples-bg::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(241,226,211,.3) 0%,rgba(241,226,211,.7) 35%,rgba(239,222,206,.93) 62%,#ecd6c4 100%),url(images/embrace.jpg) center 30%/cover no-repeat}
 
+.wide-inset{margin-bottom:56px}
+.wide-inset img{aspect-ratio:21/9}
+
 /* lists */
 .soft-list{list-style:none;margin-top:8px}
 .soft-list li{display:grid;grid-template-columns:34px 1fr;gap:6px;padding:26px 0;border-top:1px solid var(--line)}
@@ -495,6 +498,7 @@ main{margin-right:var(--side-w)}
 <section class="sec" id="workshops">
   <div class="inner wide">
     <h2 class="reveal">סדנאות</h2>
+    <figure class="inset wide-inset reveal"><img src="images/yurt.jpg" alt="" loading="lazy" style="object-position:center 60%"></figure>
     <div class="ws-grid">
       <a class="ws reveal" href="https://claude.ai/artifact/XRLhkJYMEdXYbaRADADFoq" target="_blank" rel="noopener">
         <div class="ws-img fit" style="--bg:url(images/ws-restart.jpg)"><img src="images/ws-restart.jpg" alt="Restart" loading="lazy"></div>
