@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>גילי · טנטרה</title>
+<meta name="description" content="נעים מאוד, אני גילי, מנחת טנטרה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Suez+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#fbf3ea;
+  --bg-2:#f6e7d8;
+  --card:#fffaf4;
+  --ink:#4b3428;
+  --ink-soft:#7a5d4c;
+  --accent:#c47a5a;
+  --accent-deep:#a35a3f;
+  --rose:#e3b3a0;
+  --gold:#c99a5b;
+  --line:rgba(122,80,58,.16);
+  --shadow:0 18px 48px -24px rgba(110,62,40,.35);
+  --side-w:260px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#2a1e19;--bg-2:#32241e;--card:#3a2a23;
+    --ink:#f6e6d8;--ink-soft:#d8bfae;--accent:#e39a78;--accent-deep:#f0b597;
+    --rose:#c98a76;--gold:#e0b57c;--line:rgba(246,230,216,.14);
+    --shadow:0 18px 48px -24px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#2a1e19;--bg-2:#32241e;--card:#3a2a23;
+  --ink:#f6e6d8;--ink-soft:#d8bfae;--accent:#e39a78;--accent-deep:#f0b597;
+  --rose:#c98a76;--gold:#e0b57c;--line:rgba(246,230,216,.14);
+  --shadow:0 18px 48px -24px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Varela Round',system-ui,sans-serif;
+  font-size:21px;line-height:1.95;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Suez One',serif;font-weight:400;line-height:1.3;color:var(--accent-deep)}
+p+p{margin-top:1.1em}
+
+/* ---------- side bar ---------- */
+.side{
+  position:fixed;top:0;right:0;bottom:0;width:var(--side-w);z-index:40;
+  background:var(--bg-2);border-left:1px solid var(--line);
+  display:flex;flex-direction:column;padding:34px 22px 26px;overflow-y:auto;
+}
+.side .brand{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.side .brand img{width:62px;height:62px;border-radius:50%;object-fit:cover;object-position:center 20%;border:2px solid var(--rose)}
+.side .brand span{font-family:'Suez One',serif;font-size:30px;color:var(--accent-deep);line-height:1.1}
+.side nav{display:flex;flex-direction:column;gap:4px}
+.side nav a{
+  display:block;padding:10px 16px;border-radius:16px;font-size:18px;line-height:1.45;color:var(--ink-soft);
+  transition:background .25s,color .25s;
+}
+.side nav a:hover{background:rgba(196,122,90,.1);color:var(--accent-deep)}
+.side nav a.on{background:var(--card);color:var(--accent-deep);box-shadow:var(--shadow)}
+.side .side-cta{margin-top:auto;padding-top:24px}
+
+/* ---------- main ---------- */
+main{margin-right:var(--side-w)}
+.sec{padding:clamp(64px,8vw,110px) clamp(22px,5vw,72px)}
+.sec:nth-of-type(even){background:var(--bg-2)}
+.inner{max-width:820px;margin:0 auto}
+.sec h2{font-size:clamp(34px,4.6vw,52px);margin-bottom:28px;position:relative;padding-bottom:18px}
+.sec h2::after{content:"";position:absolute;bottom:0;right:0;width:70px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--accent))}
+.sec h3{font-size:clamp(26px,3.2vw,34px);margin:40px 0 18px}
+.sec p{color:var(--ink)}
+.lead{font-size:clamp(23px,2.6vw,28px);line-height:1.8;color:var(--accent-deep)!important}
+
+/* hero */
+.hero{
+  position:relative;min-height:92vh;display:flex;align-items:flex-end;
+  padding:0;overflow:hidden;background:#3a2a23;
+}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(60,34,22,.78) 0%,rgba(60,34,22,.25) 45%,rgba(60,34,22,0) 70%)}
+.hero-text{position:relative;z-index:2;padding:0 clamp(22px,5vw,72px) clamp(48px,7vw,90px);color:#fff6ec;max-width:900px}
+.hero-text h1{color:#fff6ec;font-size:clamp(52px,8vw,104px);line-height:1.05;margin-bottom:12px}
+.hero-text p{font-size:clamp(22px,2.6vw,30px);line-height:1.6;color:#fbe7d6}
+.hero-text .btn{margin-top:28px}
+
+/* about with portrait */
+.about-grid{display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start}
+.portrait{
+  position:sticky;top:40px;border-radius:50% 50% 24px 24px/36% 36% 24px 24px;overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid var(--line);background:var(--card)
+}
+.portrait img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+/* photo band */
+.band{height:clamp(240px,34vw,440px);overflow:hidden;position:relative}
+.band img{width:100%;height:100%;object-fit:cover}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,243,234,.15),rgba(196,122,90,.12))}
+
+/* lists */
+.soft-list{list-style:none;margin-top:12px}
+.soft-list li{position:relative;padding:16px 38px 16px 0;border-bottom:1px solid var(--line)}
+.soft-list li:last-child{border-bottom:0}
+.soft-list li::before{content:"❀";position:absolute;right:0;top:16px;color:var(--accent);font-size:20px}
+
+/* workshops */
+.ws-grid{display:grid;gap:30px;margin-top:10px}
+.ws{
+  display:grid;grid-template-columns:42% 1fr;min-height:300px;
+  background:var(--card);border:1px solid var(--line);border-radius:30px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .35s ease,box-shadow .35s ease;
+}
+.ws:hover{transform:translateY(-6px);box-shadow:0 30px 60px -26px rgba(110,62,40,.5)}
+.ws-img{position:relative;overflow:hidden}
+.ws-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.ws:hover .ws-img img{transform:scale(1.05)}
+.ws-body{padding:clamp(28px,3.4vw,42px);display:flex;flex-direction:column;justify-content:center}
+.ws-body h3{margin:0 0 6px;font-size:clamp(28px,3.4vw,38px)}
+.ws-body .sub{color:var(--ink-soft);font-size:20px;margin-bottom:20px}
+.dates{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.dates span{
+  font-family:'Suez One',serif;font-size:22px;color:var(--accent-deep);direction:ltr;
+  background:rgba(227,179,160,.25);border:1px solid rgba(196,122,90,.3);border-radius:999px;padding:6px 18px;
+}
+.ws-arrow{
+  align-self:flex-start;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--gold));color:#fff;font-size:26px;
+  box-shadow:0 10px 24px -10px rgba(163,90,63,.7);transition:transform .3s
+}
+.ws:hover .ws-arrow{transform:translateX(-6px)}
+
+/* testimonials */
+.tst-grid{columns:2 320px;column-gap:26px}
+.tst{
+  break-inside:avoid;margin-bottom:26px;background:var(--card);border:1px solid var(--line);
+  border-radius:26px;padding:34px 32px 28px;box-shadow:var(--shadow);position:relative;
+}
+.tst::before{content:"”";position:absolute;top:6px;left:22px;font-family:'Suez One',serif;font-size:72px;line-height:1;color:var(--rose);opacity:.6}
+.tst p{font-size:19px;line-height:1.85}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-family:inherit;font-size:20px;
+  padding:16px 32px;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(135deg,var(--accent),var(--gold));color:#fff;
+  box-shadow:0 14px 30px -14px rgba(163,90,63,.8);transition:transform .3s,box-shadow .3s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px -16px rgba(163,90,63,.9)}
+.btn svg{width:24px;height:24px;flex:none}
+.btn.wa{background:#25d366;box-shadow:0 14px 30px -14px rgba(37,211,102,.8)}
+.side .btn{width:100%;justify-content:center;font-size:18px;padding:14px 18px}
+
+.contact{text-align:center;background:linear-gradient(170deg,var(--bg-2),var(--rose))!important}
+.contact h2::after{right:50%;transform:translateX(50%)}
+.contact .btn{font-size:22px;padding:18px 40px}
+.contact .phone{margin-top:20px;font-size:20px;color:var(--ink-soft)}
+footer{padding:30px;text-align:center;color:var(--ink-soft);font-size:16px;background:var(--bg)}
+
+.fab{
+  position:fixed;bottom:22px;left:22px;z-index:50;width:62px;height:62px;border-radius:50%;
+  background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px rgba(37,211,102,.45);
+  transition:transform .3s
+}
+.fab:hover{transform:scale(1.08)}
+.fab svg{width:32px;height:32px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- mobile ---------- */
+@media (max-width:900px){
+  body{font-size:19px}
+  .side{
+    top:0;bottom:auto;left:0;width:auto;height:auto;flex-direction:row;align-items:center;
+    padding:10px 12px;border-left:0;border-bottom:1px solid var(--line);overflow:hidden;
+    background:color-mix(in srgb,var(--bg-2) 94%,transparent);backdrop-filter:blur(10px);
+  }
+  .side .brand{margin:0 0 0 10px;flex:none}
+  .side .brand img{width:40px;height:40px}
+  .side .brand span{display:none}
+  .side nav{flex-direction:row;overflow-x:auto;gap:4px;scrollbar-width:none}
+  .side nav::-webkit-scrollbar{display:none}
+  .side nav a{white-space:nowrap;font-size:16px;padding:8px 14px}
+  .side .side-cta{display:none}
+  main{margin-right:0;padding-top:62px}
+  html{scroll-padding-top:74px}
+  .hero{min-height:78vh}
+  .about-grid{grid-template-columns:1fr}
+  .portrait{position:static;max-width:280px;margin:0 auto;order:-1}
+  .ws{grid-template-columns:1fr}
+  .ws-img{height:230px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<aside class="side">
+  <a class="brand" href="#top"><img src="images/gili.jpg" alt="גילי"><span>גילי</span></a>
+  <nav id="nav">
+    <a href="#about">מי אני</a>
+    <a href="#tantra">מה זה טנטרה</a>
+    <a href="#sexuality">המיניות כמרחב של חקירה והתעוררות</a>
+    <a href="#life">מהחקירה אל החיים עצמם</a>
+    <a href="#private">סדנאות הפרטיות</a>
+    <a href="#clinic">מפגשים אישיים בקליניקה</a>
+    <a href="#forwhom">למי המפגשים האישיים מתאימים?</a>
+    <a href="#workshops">סדנאות</a>
+    <a href="#reviews">המלצות</a>
+    <a href="#contact">יצירת קשר</a>
+  </nav>
+  <div class="side-cta">
+    <a class="btn wa" href="https://wa.me/972544799145?text=%D7%94%D7%99%20%D7%92%D7%99%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%94%20%D7%95%D7%A0%D7%91%D7%93%D7%95%D7%A7%20%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%9C%D7%9E%D7%A4%D7%92%D7%A9%D7%99%D7%9D%20%D7%AA%D7%94%D7%9C%D7%99%D7%9B%D7%99%D7%99%D7%9D%20%D7%91%D7%A7%D7%9C%D7%99%D7%A0%D7%99%D7%A7%D7%94%20%D7%90%D7%95%20%D7%9C%D7%94%D7%A8%D7%A9%D7%9E%D7%94%20%D7%9C%D7%90%D7%97%D7%AA%20%D7%9E%D7%94%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg><span>יצירת קשר</span></a>
+  </div>
+</aside>
+
+<main id="top">
+
+<!-- HERO -->
+<header class="hero">
+  <img src="images/couple.jpg" alt="">
+  <div class="hero-text">
+    <h1>גילי</h1>
+    <p>מנחת טנטרה</p>
+    <a class="btn wa" href="https://wa.me/972544799145?text=%D7%94%D7%99%20%D7%92%D7%99%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%94%20%D7%95%D7%A0%D7%91%D7%93%D7%95%D7%A7%20%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%9C%D7%9E%D7%A4%D7%92%D7%A9%D7%99%D7%9D%20%D7%AA%D7%94%D7%9C%D7%99%D7%9B%D7%99%D7%99%D7%9D%20%D7%91%D7%A7%D7%9C%D7%99%D7%A0%D7%99%D7%A7%D7%94%20%D7%90%D7%95%20%D7%9C%D7%94%D7%A8%D7%A9%D7%9E%D7%94%20%D7%9C%D7%90%D7%97%D7%AA%20%D7%9E%D7%94%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg><span>יצירת קשר</span></a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="inner about-grid">
+    <div>
+      <h2 class="reveal">מי אני</h2>
+      <p class="lead reveal">נעים מאוד, אני גילי, מנחת טנטרה, גרושה באושר, בזוגיות אוהבת, אמא לשלושה מתבגרים ואישה שנמצאת בעצמה כל הזמן בתנועה, בסקרנות ובהתפתחות.</p>
+      <div class="reveal">
+        <p>אני מפיקה ומנחה סדנאות וריטריטים לזוגות להעמקת החיבור הזוגי והמיני, מרחבי אהבה טנטריים לחיבורי לב וריטריטים לנשים לריפוי וטרנספורמציה.</p>
+        <p>הגעתי לעולם הטנטרה מתוך המסע האישי שלי ומתוך סקרנות עמוקה לאפשרות להביא ריפוי לפצעים שלי ולשנות דפוסים, דרך עבודה עם הגוף. בחיים שלי אני חיה אהבה וריפוי, בוחרת שוב ושוב בחופש להיות מי שאני, באהבה שפותחת ומחברת אותי אליי ואל העולם.</p>
+        <p>הטנטרה לימדה אותי שאפשר לפתח מערכת יחסים מיטיבה יותר — עם עצמנו, עם הגוף שלנו, עם הסביבה, בתוך הזוגיות ועם החיים עצמם.</p>
+        <p>תהליכי העומק שאני מנחה בסדנאות ובקליניקה שלי, מאפשרים לכם לחשוף את הדפוסים הלא־מודעים ואת פצעי הילדות המעצבים את עולמכם הפנימי, את מערכות היחסים שלכם ואת האופן שבו אתם פוגשים את החיים.</p>
+        <p>דרך עבודה סומטית, ריגשית וחווייתית, ובשילוב טנטרה תרפיה, מובחנות, התמקדות, נשימה, קונסטלציה, צלילים מרפאים- אני מזמינה אתכם לצאת למסע של התעוררות, ריפוי והיכרות מחודשת עם עצמכם.</p>
+        <p>זהו תהליך של התמרה עמוקה ממנגנוני הגנה לאותנטיות, מתגובות אוטומטיות לבחירה מודעת, מפחד ומריצוי לחופש פנימי, מנוכחות חלקית למפגש מלא עם עצמנו ועם האחר.</p>
+        <p>במרחב שלי מתאפשרת התפתחות של היכולת לאהוב, להרגיש, לבטא את האמת הפנימית שלנו וליצור מערכות יחסים שיש בהן יותר חופש, אינטימיות, חיבור, עונג, תשוקה וחיבור ללב.</p>
+      </div>
+    </div>
+    <figure class="portrait reveal"><img src="images/gili.jpg" alt="גילי"></figure>
+  </div>
+</section>
+
+<div class="band"><img src="images/candles.jpg" alt="" style="object-position:center 60%"></div>
+
+<!-- TANTRA -->
+<section class="sec" id="tantra">
+  <div class="inner">
+    <h2 class="reveal">מה זה טנטרה</h2>
+    <p class="lead reveal">טנטרה היא דרך חיים עמוקה של התפתחות והתמרה, המזמינה אותנו לפגוש את החיים במלואם — בגוף, בלב, בתודעה ובמערכות היחסים שלנו.</p>
+    <div class="reveal">
+      <p>זוהי הזמנה להתעורר מתוך האוטומט, לזהות את הדפוסים ואת מנגנוני ההגנה שפיתחנו לאורך חיינו, ולהתחיל לנוע בעולם מתוך חופש פנימי, אותנטיות ובחירה מודעת.</p>
+      <p>דרך עבודה עם הגוף, הנשימה, התחושות והמפגש עם האחר, אנחנו לומדים להשיל בהדרגה את השריון שפיתחנו כדי להגן על עצמנו, ולהעז לפגוש את עצמנו ואת החיים בלב פתוח יותר.</p>
+      <p>הטנטרה מלמדת אותנו את האמנות להיות רפויים בתוך המציאות, מבלי לאבד את עצמנו בתוכה. להסכים לפגוש את מה שיש, גם כשהוא אינו תואם את הציפיות שלנו; להרגיש מבלי להיסגר, לאהוב מבלי להיאחז, להציב גבולות מבלי להתנתק, ולהישאר נוכחים גם ברגעים של אי־ודאות, פחד, פגיעוּת ושינוי.</p>
+      <p>זהו מסע מהצורך לשלוט בחיים אל היכולת להשתתף בהם באמת. מהתנהלות מתוך פחד, ריצוי והרגל אל חיבור עמוק יותר לרצון, לאמת ולחיוניות שלנו.</p>
+      <p>ככל שאנחנו מפתחים נוכחות, מתרחבת היכולת שלנו לפגוש את עצמנו ואת האחר ללא מסכות, להקשיב למה שמתרחש מתחת לפני השטח, וליצור אינטימיות שיש בה חופש, כנות, רכות ותשוקה.</p>
+      <p>היכולת להיות כאן, בגוף, בלב פתוח, להסכים להרגיש, לפגוש את המציאות כפי שהיא — ולגלות שבתוך המפגש הזה טמון פוטנציאל עמוק לחופש, לחיבור ולאהבה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEXUALITY -->
+<section class="sec" id="sexuality">
+  <div class="inner">
+    <h2 class="reveal">המיניות כמרחב של חקירה והתעוררות</h2>
+    <div class="reveal">
+      <p>במרחב הטנטרי, המיניות היא שער להיכרות עמוקה עם עצמנו, עם האופן שבו אנחנו חווים קרבה, מבטאים רצון, מתמסרים, שומרים על עצמנו ומאפשרים לאחר להתקרב אלינו.</p>
+      <p>דרך חקירה קשובה של הגוף, הנשימה, התחושות והמפגש האינטימי, אנחנו יכולים לגלות את הדפוסים המעצבים את המיניות שלנו: היכן אנחנו מתאמצים להרשים, מתי ומול מי אנחנו מרצים או בוחרים להתנתק, היכן אנחנו חוששים להיחשף ואיזה חלקים בתוכינו אנחנו בוחרים להסתיר, מה מאפשר לנו להרגיש בטוחים מספיק כדי להתרכך, להיפתח, להתמסר ועוד</p>
+      <p>החקירה הזו אינה עוסקת רק בשיפור חיי המין, אלא גם בשאלות עמוקות יותר: עד כמה אנחנו חופשיים להיות מי שאנחנו? האם אנחנו מעזים לבטא את הרצונות שלנו? האם אנחנו מסוגלים להרגיש עונג בלי הישגיות ומטרתיות, להיות באינטימיות בלי לאבד את עצמנו, ולפגוש את האחר בסקרנות במקום מתוך ציפיות והרגלים?</p>
+      <p class="lead">המיניות הופכת כך למרחב חי של מודעות, גילוי וצמיחה — מקום שבו אפשר להתנסות בדרכים חדשות של תקשורת, נוכחות, הקשבה, גבולות, תשוקה וקרבה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIFE -->
+<section class="sec" id="life">
+  <div class="inner">
+    <h2 class="reveal">מהחקירה אל החיים עצמם</h2>
+    <div class="reveal">
+      <p>האופן שבו אנחנו פוגשים את החיים הוא במידה רבה גם האופן שבו אנחנו פוגשים את המיניות שלנו — והאופן שבו אנחנו מתנהלים במיניות משקף לא פעם את הדפוסים שמלווים אותנו בחיים עצמם. הצורך בשליטה, הפחד מחשיפה, הנטייה לרצות, הקושי להציב גבולות או להרפות, לצד היכולת להיות נוכחים, לבטא רצון ולהיפתח לאינטימיות.</p>
+      <p>החיים והמיניות אינם עולמות נפרדים; הם משקפים, מזינים ומעצבים זה את זה. דרך חקירה של המיניות אנחנו יכולים לגלות רבדים עמוקים בעצמנו, לזהות דפוסים שלא תמיד נגישים לנו דרך המחשבה, ולהביא את התובנות האלה אל מערכות היחסים ואל החיים כולם. ובה בעת, ככל שאנחנו מתפתחים, מעמיקים את המודעות שלנו ולומדים לחיות באותנטיות ובחופש רב יותר, כך מתרחבת גם היכולת שלנו לחוות מיניות שיש בה נוכחות, חיבור, תשוקה ואהבה.</p>
+      <p>בסופו של דבר העבודה הטנטרית מחלחלת אל מערכות היחסים שלנו, אל האופן שבו אנחנו מתקשרים, מתמודדים עם קונפליקטים, מציבים גבולות, מקבלים את עצמנו ופוגשים את העולם.</p>
+      <p class="lead">ככל שאנחנו מפתחים מודעות לגוף ולעולם הפנימי שלנו, אנחנו מקבלים הזדמנות להשתחרר בהדרגה מתגובות אוטומטיות ולפעול מתוך בחירה. אנחנו לומדים להיות פחות מנוהלים על ידי פחד, ביקורת, שליטה, אשמה ובושה ויותר מחוברים לאמת הפנימית שלנו, לאנרגיית החיים וליכולת לאהוב.</p>
+    </div>
+  </div>
+</section>
+
+<div class="band"><img src="images/yurt.jpg" alt=""></div>
+
+<!-- PRIVATE WORKSHOPS -->
+<section class="sec" id="private">
+  <div class="inner">
+    <h2 class="reveal">סדנאות הפרטיות</h2>
+    <p class="lead reveal">נבנות בהתאמה אישית לזוג, בהתאם לצרכים, לכוונות ולמרחב החקירה המבוקש.</p>
+    <div class="reveal">
+      <p>זהו מפגש זוגי אינטימי בן שלוש שעות, המוקדש לכם על מנת שתיפגשו מחדש, מתוך סקרנות, נוכחות ולב פתוח.</p>
+      <p>הסדנה היא הזמנה לגלות אפשרויות חדשות של קרבה, תקשורת, מגע ואינטימיות. דרך עקרונות הטנטרה, נחקור יחד איך אפשר ליצור מרחב זוגי ממקום של חיבור פנימי והדדי, תקשורת, נוכחות ולב פתוח ולהעצים את החופש והתשוקה בקשר שלכם.</p>
+      <p>במהלך המפגש נתנסה בתרגילים חווייתיים של נשימה ונוכחות, הקשבה עמוקה, תקשורת אותנטית ומפגש דרך מבט ומגע מודע. נחקור את ההבדל בין מגע שמכוון לתוצאה לבין מגע שמאפשר פשוט להרגיש, בין מיניות שמתנהלת מתוך הרגל וציפייה לבין אינטימיות שנוצרת מתוך סקרנות והקשבה לרגע.</p>
+      <p>נלמד לזהות את הדפוסים שמופיעים בינינו, לתקשר רצונות וגבולות באופן בהיר ופתוח, ולהעמיק את היכולת להיות קרובים מבלי לאבד את עצמנו. ניצור מרחב שמאפשר להאט, להשתחרר מהצורך לבצע או להרשים, ולהקשיב למה שבאמת מתרחש בגוף ובלב.</p>
+      <p>התרגילים מותאמים אליכם, לקצב שלכם ולמידת הפתיחות שנוחה לכם. אין צורך בניסיון קודם בטנטרה, ואין צורך להגיע עם מטרה מסוימת או עם קושי בזוגיות. נדרשים רק סקרנות ונכונות לחקור יחד. כל התנסות נעשית בהסכמה מלאה, תוך כיבוד הגבולות והרצונות של שניכם.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLINIC -->
+<section class="sec" id="clinic">
+  <div class="inner">
+    <h2 class="reveal">מפגשים אישיים בקליניקה</h2>
+    <p class="lead reveal">המפגשים האישיים בקליניקה הם מרחב המהווה מעבדה להעמקת ההיכרות עם עצמך, להבנת הדפוסים שמעצבים את חייך, וליצירת אפשרויות חדשות של חופש, חיבור ואהבה.</p>
+    <div class="reveal">
+      <p>כל תהליך מתחיל בהקשבה למה שמביא אותך למפגש: קושי שחוזר במערכות יחסים, תחושת תקיעות, ריחוק מהגוף, קושי לבטא רצונות וגבולות, אתגרים במיניות או כמיהה לחיות מתוך יותר אותנטיות, חיוניות ונוכחות. אנחנו מזהים את הדפוסים ואת מנגנוני ההגנה שהתפתחו לאורך החיים, ובוחנים כיצד הם באים לידי ביטוי בהווה. לצד ההבנה המודעת, אנחנו עובדים דרך חוויה ועבודה סומטית, מתוך ההכרה שתנועה חדשה נוצרת דרך עבודה עם הגוף.</p>
+      <p>המפגשים משלבים, בהתאם לצורך ולמה שעולה בתהליך, כלים מעולמות הטנטרה, ההתמקדות, הנשימה, הקונסטלציה והעבודה הסומטית. אנחנו חוקרים שאלות מהותיות כמו: מה קורה לי כשאני מרגיש דחוי? כיצד אני מגיב כשאני מאבד שליטה? האם אני מסוגל לבטא את רצוני בלי לרצות אחרים? מה מאפשר לי להתרכך ולהיפתח, ומה גורם לי להתכווץ ולהתגונן?</p>
+      <p>ומתוך החקירה מתפתחת האפשרות ליצור יחס חדש כלפי עצמנו — פחות שיפוטי ונוקשה, יותר קשוב ומקבל. ללמוד לשהות עם רגשות מבלי להיות מוצפים מהם, להקשיב לגוף, לזהות צרכים, לבטא גבולות ולפעול מתוך בחירה במקום מתוך הרגל.</p>
+      <p>המיניות יכולה להיות חלק מהותי מהתהליך, כאשר היא רלוונטית למטרות שלך. היא מאפשרת לחקור את הקשר בין הגוף, העונג, הרצון, הפגיעוּת והיכולת להיות באינטימיות, ולהרחיב את החופש לחוות את עצמנו באופן אותנטי ונוכח יותר.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="sec" id="forwhom">
+  <div class="inner">
+    <h2 class="reveal">למי המפגשים האישיים מתאימים?</h2>
+    <p class="lead reveal">המסע מותאם אישית לכל אדם, לקצב שלו ולמקומות שבהם הוא מבקש להעמיק ולכל אחד שמוכן להתמסר לתהליך עומק ונכונות לפגוש את עצמו בסקרנות ובכנות.</p>
+    <ul class="soft-list reveal">
+      <li>המפגשים מתאימים לנשים ולגברים המבקשים להעמיק את ההיכרות עם עצמם, להבין מה מניע אותם וליצור שינוי מהותי באופן שבו הם חווים את עצמם, את מערכות היחסים שלהם ואת החיים.</li>
+      <li>למי שמזהים דפוסים שחוזרים על עצמם — בזוגיות, במיניות, בתקשורת או ביחס לעצמם — ומבקשים להבין מה נמצא מתחת לפני השטח, מעבר להסברים המוכרים ולפתרונות שכבר ניסו.</li>
+      <li>למי שמרגישים שהם מתנהלים מתוך ריצוי, ביקורת עצמית, פחד מדחייה או צורך בשליטה, ומבקשים לפתח חופש פנימי, ביטחון ויכולת לפעול מתוך בחירה ולא מתוך תגובות אוטומטיות.</li>
+      <li>למי שמבקשים להעמיק את החיבור לגוף, לרגשות ולרצונות שלהם; ללמוד להקשיב לעצמם, לבטא את האמת שלהם, להציב גבולות ולהיות באינטימיות מבלי לוותר על עצמם.</li>
+      <li>למי שרוצים לחקור את המיניות שלהם לעומק — להרחיב את היכולת לחוות עונג ונוכחות, להשתחרר מדפוסי ביצוע וציפיות, ולהתקרב למיניות אותנטית, חופשית ומחוברת יותר.</li>
+      <li>וגם אם אינכם בהכרח מתמודדים עם קושי מסוים, אלא מרגישים שיש בכם עוד עומק לגלות, עוד אפשרויות לחוות, רצון להבין את עצמכם טוב יותר ולייצר טרנספורמציה באופן שבו אתם מרגישים, מתנהלים במערכות יחסים, מתקשרים, חווים אינטימיות רגשית ואוהבים.</li>
+    </ul>
+    <div class="reveal" style="margin-top:34px">
+      <a class="btn wa" href="https://wa.me/972544799145?text=%D7%94%D7%99%20%D7%92%D7%99%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%94%20%D7%95%D7%A0%D7%91%D7%93%D7%95%D7%A7%20%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%9C%D7%9E%D7%A4%D7%92%D7%A9%D7%99%D7%9D%20%D7%AA%D7%94%D7%9C%D7%99%D7%9B%D7%99%D7%99%D7%9D%20%D7%91%D7%A7%D7%9C%D7%99%D7%A0%D7%99%D7%A7%D7%94%20%D7%90%D7%95%20%D7%9C%D7%94%D7%A8%D7%A9%D7%9E%D7%94%20%D7%9C%D7%90%D7%97%D7%AA%20%D7%9E%D7%94%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg><span>יצירת קשר</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOPS -->
+<section class="sec" id="workshops">
+  <div class="inner">
+    <h2 class="reveal">סדנאות</h2>
+    <div class="ws-grid">
+
+      <a class="ws reveal" href="https://claude.ai/code/artifact/e3e3cc96-d1b0-470f-a667-7a6b8fbc79c6" target="_blank" rel="noopener">
+        <div class="ws-img"><img src="images/couple.jpg" alt="" style="object-position:55% center"></div>
+        <div class="ws-body">
+          <h3>אומנות העינוג הטנטרי</h3>
+          <p class="sub">סדנאות יום לזוגות אוהבים · פרדס חנה</p>
+          <div class="dates"><span>31.07.26</span><span>14.08.26</span></div>
+          <span class="ws-arrow" aria-hidden="true">←</span>
+        </div>
+      </a>
+
+      <a class="ws reveal" href="https://claude.ai/artifact/XRLhkJYMEdXYbaRADADFoq" target="_blank" rel="noopener">
+        <div class="ws-img"><img src="images/yurt.jpg" alt=""></div>
+        <div class="ws-body">
+          <h3>Restart · מסע חקירה טנטרי</h3>
+          <p class="sub">סדנא יומית לזוגות · עדנים</p>
+          <div class="dates"><span>16.10</span></div>
+          <span class="ws-arrow" aria-hidden="true">←</span>
+        </div>
+      </a>
+
+      <a class="ws reveal" href="https://claude.ai/artifact/9rMYozgsdwXwYu4xiChKei" target="_blank" rel="noopener">
+        <div class="ws-img"><img src="images/candles.jpg" alt="" style="object-position:center 60%"></div>
+        <div class="ws-body">
+          <h3>WINTER NIGHTS</h3>
+          <p class="sub">מקדש התמסרות · תל אביב</p>
+          <div class="dates"><span>05.11</span><span>25.12</span><span>25.02</span><span>25.03</span></div>
+          <span class="ws-arrow" aria-hidden="true">←</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews">
+  <div class="inner">
+    <h2 class="reveal">המלצות</h2>
+    <div class="tst-grid">
+      <blockquote class="tst reveal"><p>עברתי אצל גילי טיפול במשך כשנה ואני רוצה להמליץ על גילי בחום עבור מי שמחפש/ת תהליך עבורו. עברתי עם גילי טיפול שהיה מאוד משמעותי עבורי. תהליך בו הכרתי את עצמי יותר לעומק, למדתי לאהוב את עצמי יותר ולדעת שמגיע לי לחיות בשפע ובחופש ולהיות טוב כלפי עצמי ושזה לא על חשבון מישהו אחר. גילי היא מטפלת מקצועית, חכמה, אכפתית, מלאת חמלה, עם מגע קשוב ותומך</p></blockquote>
+
+      <blockquote class="tst reveal"><p>אם יש לי טיפ אחד לזוגיות מיטיבה לאורך שנים זה לגלות את עצמכם מחדש כל פעם.<br>לנסות דברים חדשים בזוגיות ובנפרדות.<br>אנחנו זוג כזה שאוהב לחקור דברים חדשים, מסקרנים, כאלה שלפעמים מוציאים מאיזור הנוחות.<br>זה כמו להוסיף עוד קיסם למדורת הזוגיות .<br>על טנטרה שמעתי לא פעם ולא פעמיים אבל לא מעבר לזה ואז אהובתי ראתה פוסט של גילי המופלאה על סדנת טנטרה זוגית.<br>מיד נרשמנו!<br>לא אגלה יותר מידי חוץ מזה שאם אתם רוצים לגלות עוד קצת על עצמכם ועל בן/בת הזוג , להיות באינטימיות שמעולם לא חוויתם עם עצמכם ובן/בת הזוג ובעצם להתחבר לאנרגיה הטבעית של החיים אז אני ממליץ בחום ומכל הלב לגלות את עולם הטנטרה.<br>וגילי היא הכתובת!</p></blockquote>
+
+      <blockquote class="tst reveal"><p>בקיצור, חוויה מהממת וקסומה!</p></blockquote>
+
+      <blockquote class="tst reveal"><p>היי גילי<br>רציתי שתדעי שאת איתי כל הזמן<br>ובמיוחד בשבוע האחרון שמצאתי את עצמי<br>"תופסת מקום במרחב",<br>לא מתקרבנת ודורשת מה שמגיע לי בלי להתנצל<br>והיה לי ברור שבלי המפגשים איתך לא הייתי במקום שבו אני נמצאת היום<br>אז תודה</p></blockquote>
+
+      <blockquote class="tst reveal"><p>הי גילי, רציתי כבר הרבה זמן להגיד לך שהתהליך שעברנו היה לי משמעותי ממש</p></blockquote>
+
+      <blockquote class="tst reveal"><p>גילי יקרה<br>ניתקלתי בפירסום שלך בפייסבוק,כתבת כך:<br>"זו הזמנה עבורך להתעוררות,<br>להתחיל לחיות את החיים שלך בתשוקה,<br>להגביר את האנרגיה של אהבה סביבך ולהפיץ את האור שלך בעולם הזה"<br><br>וכך פעם היתי<br>ומשהו כבה אצלי בדרך.<br><br>אז נירשמתי ועל כך אהיה אסירת תודה לעולם⚘️<br><br>האור שבך,הרוגע והרוך,האנרגיה שלך,הידע והדרך בה העברת לנו ממנו,האירו בי את האור שכבה,חיכיתי כל שבוע למפגש,למדתי ממך כל כך הרבה⚘️⚘️<br>תמשיכי להפיץ את כל הטוב הזה לעולם שללא ספק יהיה מקום הרבה יותר טוב בזכותך<br>תודה לך ועלייך<br>כבר מתגעגעת</p></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="inner">
+    <h2 class="reveal">יצירת קשר</h2>
+    <div class="reveal">
+      <a class="btn wa" href="https://wa.me/972544799145?text=%D7%94%D7%99%20%D7%92%D7%99%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%94%20%D7%95%D7%A0%D7%91%D7%93%D7%95%D7%A7%20%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%9C%D7%9E%D7%A4%D7%92%D7%A9%D7%99%D7%9D%20%D7%AA%D7%94%D7%9C%D7%99%D7%9B%D7%99%D7%99%D7%9D%20%D7%91%D7%A7%D7%9C%D7%99%D7%A0%D7%99%D7%A7%D7%94%20%D7%90%D7%95%20%D7%9C%D7%94%D7%A8%D7%A9%D7%9E%D7%94%20%D7%9C%D7%90%D7%97%D7%AA%20%D7%9E%D7%94%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg><span>יצירת קשר</span></a>
+      <p class="phone"><a href="tel:+972544799145" dir="ltr">054-479-9145</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>© גילי</footer>
+</main>
+
+<a class="fab" href="https://wa.me/972544799145?text=%D7%94%D7%99%20%D7%92%D7%99%D7%9C%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%A9%D7%A0%D7%AA%D7%90%D7%9D%20%D7%A9%D7%99%D7%97%D7%94%20%D7%95%D7%A0%D7%91%D7%93%D7%95%D7%A7%20%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%9C%D7%9E%D7%A4%D7%92%D7%A9%D7%99%D7%9D%20%D7%AA%D7%94%D7%9C%D7%99%D7%9B%D7%99%D7%99%D7%9D%20%D7%91%D7%A7%D7%9C%D7%99%D7%A0%D7%99%D7%A7%D7%94%20%D7%90%D7%95%20%D7%9C%D7%94%D7%A8%D7%A9%D7%9E%D7%94%20%D7%9C%D7%90%D7%97%D7%AA%20%D7%9E%D7%94%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13.1 13.1-13.1S29.1 8.8 29.1 16 23.2 28.8 16 28.8zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.7-1.9.3-1 .3-1.8.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg></a>
+
+<script>
+(function(){
+  var reveals=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    reveals.forEach(function(el){io.observe(el);});
+  } else reveals.forEach(function(el){el.classList.add('in');});
+
+  // highlight current topic in the side bar
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var spy=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){a.classList.remove('on');});
+        var a=map[e.target.id];
+        if(a){a.classList.add('on');var n=a.parentNode;if(n.scrollWidth>n.clientWidth){n.scrollLeft+=a.getBoundingClientRect().left-n.getBoundingClientRect().left-(n.clientWidth-a.offsetWidth)/2;}}
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
+})();
+</script>
+</body>
+</html>
