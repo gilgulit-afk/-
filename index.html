@@ -195,8 +195,12 @@ main{margin-right:var(--side-w)}
 
 /* couples: photo as background */
 .couples-bg{position:relative;isolation:isolate}
-.couples-bg::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(241,226,211,.3) 0%,rgba(241,226,211,.7) 35%,rgba(239,222,206,.93) 62%,#ecd6c4 100%),url(images/embrace.jpg) center 30%/cover no-repeat}
+.couples-bg{background:linear-gradient(170deg,#f1e2d3,#e8d0bd)}
+.couples-bg::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:min(92%,820px);aspect-ratio:1206/1193;z-index:-1;
+  background:url(images/embrace.jpg) center/cover no-repeat;opacity:.6;
+  -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 45%,#000 55%,transparent 100%);
+          mask-image:radial-gradient(ellipse 50% 50% at 50% 45%,#000 55%,transparent 100%)}
 
 .wide-inset{margin-bottom:56px}
 .wide-inset img{aspect-ratio:21/9}
@@ -373,7 +377,7 @@ main{margin-right:var(--side-w)}
   <div class="inner about-grid">
     <div>
       <h2 class="reveal">מי אני</h2>
-      <p class="lead reveal">נעים מאוד, אני גילי, מנחת טנטרה, גרושה באושר, בזוגיות אוהבת, אמא לשלושה מתבגרים ואישה שנמצאת בעצמה כל הזמן בתנועה, בסקרנות ובהתפתחות.</p>
+      <p class="lead reveal">נעים מאוד, אני גילי, מנחת טנטרה, בזוגיות אוהבת, אמא לשלושה מתבגרים ואישה שנמצאת בעצמה כל הזמן בתנועה, בסקרנות ובהתפתחות.</p>
       <div class="reveal">
         <p>אני מפיקה ומנחה סדנאות וריטריטים לזוגות להעמקת החיבור הזוגי והמיני, מרחבי אהבה טנטריים לחיבורי לב וריטריטים לנשים לריפוי וטרנספורמציה.</p>
         <p>הגעתי לעולם הטנטרה מתוך המסע האישי שלי ומתוך סקרנות עמוקה לאפשרות להביא ריפוי לפצעים שלי ולשנות דפוסים, דרך עבודה עם הגוף. בחיים שלי אני חיה אהבה וריפוי, בוחרת שוב ושוב בחופש להיות מי שאני, באהבה שפותחת ומחברת אותי אליי ואל העולם.</p>
